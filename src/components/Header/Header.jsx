@@ -3,7 +3,7 @@ import './Header.scss';
 function Header() {
 	return (
 		<h1 className='header'>
-			Заголовок
+			Personal Journal
 		</h1>
 	);
 }
