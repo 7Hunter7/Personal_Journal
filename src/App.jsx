@@ -47,8 +47,7 @@ function App() {
 			</JournalList>
 		</Sidebar>
 		<Body>
-			<JournalForm></JournalForm>
-			<Button/>
+			<JournalForm/>
 		</Body>
 	</>; 
 }
