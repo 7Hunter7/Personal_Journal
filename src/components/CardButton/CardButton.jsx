@@ -1,8 +1,10 @@
 import './CardButton.scss';
 
-function CardButton() {
+function CardButton({children}) {
 	return (
-		<button className='card-button'>Кнопка карточки</button>
+		<button className='card-button'>
+			{children}
+		</button>
 	);
 }
 
