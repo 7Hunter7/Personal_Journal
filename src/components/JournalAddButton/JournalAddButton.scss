@@ -16,6 +16,6 @@
     height: auto;
   }
   &:hover svg {
-    fill:  #312EB5;
+    fill: var(--accent-color);
   }
 }
