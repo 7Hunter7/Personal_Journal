@@ -1,8 +1,10 @@
 import './CardButton.scss';
 
-function CardButton({children}) {
+function CardButton({children, className}) {
+	const classButton = 'card-button' + ( className ? ' '+ className : '');
+
 	return (
-		<button className='card-button'>
+		<button className={classButton}>
 			{children}
 		</button>
 	);

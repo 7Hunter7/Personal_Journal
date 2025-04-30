@@ -3,7 +3,7 @@ import './JournalAddButton.scss';
 
 function JournalAddButton() {
 	return (
-		<CardButton>
+		<CardButton className="journal-add">
 			+ Новое воспоминание
 		</CardButton>
 	);
