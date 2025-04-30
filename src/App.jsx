@@ -7,6 +7,7 @@ import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import Sidebar from './layouts/Sidebar/Sidebar';
 import Body from './layouts/Body/Body';
 import Header from './components/Header/Header';
+import JournalList from './components/JournalList/JournalList';
 
 function App() {
 
@@ -32,15 +33,17 @@ function App() {
 		<Sidebar>
 			<Header/>
 			<JournalAddButton/>
-			<CardButton>
-				<JournalItem title = {data[0].title} date = {data[0].date} text = {data[0].text}/>
-			</CardButton>
-			<CardButton>
-				<JournalItem title = {data[1].title} date = {data[1].date} text = {data[1].text}/>
-			</CardButton>
-			<CardButton>
-				<JournalItem title = {data[2].title} date = {data[2].date} text = {data[2].text}/>
-			</CardButton>
+			<JournalList>
+				<CardButton>
+					<JournalItem title = {data[0].title} date = {data[0].date} text = {data[0].text}/>
+				</CardButton>
+				<CardButton>
+					<JournalItem title = {data[1].title} date = {data[1].date} text = {data[1].text}/>
+				</CardButton>
+				<CardButton>
+					<JournalItem title = {data[2].title} date = {data[2].date} text = {data[2].text}/>
+				</CardButton>
+			</JournalList>
 		</Sidebar>
 		<Body>
 			<Button/>
