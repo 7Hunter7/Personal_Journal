@@ -2,9 +2,9 @@ import './Body.scss';
 
 function Body({children}) {
 	return (
-		<button className='body'>
+		<div className='body'>
 			{children}
-		</button>
+		</div>
 	);
 }
 
