@@ -1,10 +1,11 @@
+import CardButton from '../CardButton/CardButton';
 import './JournalAddButton.scss';
 
-function JournalAddButton({children}) {
+function JournalAddButton() {
 	return (
-		<button className='journal-add-button'>
-			{children}
-		</button>
+		<CardButton>
+			+ Новое воспоминание
+		</CardButton>
 	);
 }
 
