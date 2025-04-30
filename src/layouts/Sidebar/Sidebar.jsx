@@ -2,9 +2,9 @@ import './Sidebar.scss';
 
 function Sidebar({children}) {
 	return (
-		<button className='sidebar'>
+		<div className='sidebar'>
 			{children}
-		</button>
+		</div>
 	);
 }
 
