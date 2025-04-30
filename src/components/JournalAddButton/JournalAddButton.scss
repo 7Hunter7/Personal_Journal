@@ -1,6 +1,21 @@
+@import '../../assets/main.css';
+
 .journal-add {
   display: flex;
   justify-content:center;
   align-items: center;
+  gap: 0.5rem;
   padding: 0.625rem;
+  font-family: var(--font-family-header);
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: normal;
+  svg {
+    width: 1rem;
+    height: auto;
+  }
+  &:hover svg {
+    fill:  #312EB5;
+  }
 }
