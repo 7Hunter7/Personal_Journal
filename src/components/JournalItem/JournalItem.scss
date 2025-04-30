@@ -2,6 +2,7 @@
   margin-top: 1rem;
   padding: 1.25rem;
   border-radius: 0.25rem;
+  text-align: left;
   color: #fff;
   background: rgba(255,255,255,0.03);
   &__header {
@@ -9,6 +10,12 @@
     font-style: bold;
     font-weight: 600;
     line-height: 1.75rem;
+  }
+  &__body {
+    display: flex;
+    flex-direction: row;
+    gap: 0.625rem;
+
   }
   &__date,
   &__text {
