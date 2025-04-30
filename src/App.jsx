@@ -1,14 +1,13 @@
-import React from 'react';
 import "./App.css";
-import Button from './components/Button/Button';
-import CardButton from './components/CardButton/CardButton';
-import JournalItem from './components/JournalItem/JournalItem';
-import JournalAddButton from './components/JournalAddButton/JournalAddButton';
-import Sidebar from './layouts/Sidebar/Sidebar';
+import React from 'react';
 import Body from './layouts/Body/Body';
 import Header from './components/Header/Header';
-import JournalList from './components/JournalList/JournalList';
+import Sidebar from './layouts/Sidebar/Sidebar';
+import CardButton from './components/CardButton/CardButton';
 import JournalForm from './components/JournalForm/JournalForm';
+import JournalList from './components/JournalList/JournalList';
+import JournalItem from './components/JournalItem/JournalItem';
+import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 
 function App() {
 
@@ -35,15 +34,15 @@ function App() {
 			<Header/>
 			<JournalAddButton/>
 			<JournalList>
-				<CardButton>
-					<JournalItem title = {data[0].title} date = {data[0].date} text = {data[0].text}/>
-				</CardButton>
-				<CardButton>
-					<JournalItem title = {data[1].title} date = {data[1].date} text = {data[1].text}/>
-				</CardButton>
-				<CardButton>
-					<JournalItem title = {data[2].title} date = {data[2].date} text = {data[2].text}/>
-				</CardButton>
+				{data.map(el => (
+					<CardButton>
+						<JournalItem 
+							title = {el.title}
+							date = {el.date}
+							text = {el.text}
+						/>
+					</CardButton>
+				))}
 			</JournalList>
 		</Sidebar>
 		<Body>
