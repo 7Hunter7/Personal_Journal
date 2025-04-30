@@ -2,6 +2,7 @@ import React from 'react';
 import "./App.css";
 import Button from './components/Button/Button';
 import JournalItem from './components/JournalItem/JournalItem';
+import CardButton from './components/CardButton/CardButton';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
 		<h1>Заголовок</h1>
 		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque at sequi possimus inventore doloribus vel quos aut officiis repellat quod? Ratione esse optio ut commodi quasi explicabo placeat laudantium animi.</p>
 		<Button/>
+		<CardButton/>
 		<JournalItem title = {data[0].title} date = {data[0].date} text = {data[0].text}/>
 		<JournalItem title = {data[1].title} date = {data[1].date} text = {data[1].text}/>
 		<JournalItem title = {data[2].title} date = {data[2].date} text = {data[2].text}/>
