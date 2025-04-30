@@ -2,7 +2,7 @@ import './Button.scss';
 
 function Button() {
   return (
-    <button>Сохранить</button>
+    <button className='button accent'>Сохранить</button>
   );
 }
 
