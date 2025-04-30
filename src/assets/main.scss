@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Love+Light&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+$font-family-header: "Love Light", cursive;
+$font-family-primary: "Source Sans 3", sans-serif;
+$font-weight-base: 400;
+$text-color: rgba(255,255,255,0.87);
+$background-color: #181818;
+
+body {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-base;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.2; 
+  font-optical-sizing: auto;
+  color: $text-color;
+  background-color: $background-color;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: $font-family-header;
+  font-style:italic;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
