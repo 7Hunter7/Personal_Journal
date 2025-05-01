@@ -42,10 +42,13 @@ function JournalForm({onSubmit}) {
 
 	return (
 		<form className={styles['journal-form']} onSubmit={addJournalItem}>
-			<input type='text' name='title'
-				className={cn(styles['input'], {
-					[styles['invalid']]: !formValidState.title,
-				})}/>
+			<div>
+				<input type='text' name='title'
+					className={cn(styles['input-title'], {
+						[styles['invalid']]: !formValidState.title,
+					})}/>
+				<Button text='Удалить'/>
+			</div>
 			<input type='date' name='date'
 				className={cn(styles['input'], {
 					[styles['invalid']]: !formValidState.date,

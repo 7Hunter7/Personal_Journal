@@ -8,3 +8,14 @@
   border: 1px solid red;
   background:rgb(65, 5, 5) ;
 }
+.input{
+  &-title{
+    border:none ;
+    border-bottom: 1px solid #222096;
+    background: none;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
