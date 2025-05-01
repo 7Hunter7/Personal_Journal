@@ -82,7 +82,7 @@ function JournalForm({onSubmit}) {
 					</svg>
 					Метка
 				</label>
-				<input type='text' name='tag' id='tag'/>
+				<input type='text' name='tag' id='tag' className={styles['input']}/>
 			</div>
 			<div>
 				<textarea name='text' id="" cols='30' rows='10'
