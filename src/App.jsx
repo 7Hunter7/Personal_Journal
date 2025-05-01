@@ -4,10 +4,8 @@ import {useState} from 'react';
 import Body from './layouts/Body/Body';
 import Header from './components/Header/Header';
 import Sidebar from './layouts/Sidebar/Sidebar';
-import CardButton from './components/CardButton/CardButton';
 import JournalForm from './components/JournalForm/JournalForm';
 import JournalList from './components/JournalList/JournalList';
-import JournalItem from './components/JournalItem/JournalItem';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 
 function App() {
@@ -44,30 +42,11 @@ function App() {
 		}])
 	}
 
-	const sortItems = (a, b) => {
-		if (a.date < b.date) {
-			return 1;
-		} else {
-			return -1;
-		}
-	};
-
-
 	return <>
 		<Sidebar>
 			<Header/>
 			<JournalAddButton/>
-			<JournalList>
-				{items.sort(sortItems).map(el => (
-					<CardButton key={el.id}>
-						<JournalItem 
-							title={el.title}
-							date={el.date}
-							text={el.text}
-						/>
-					</CardButton>
-				))}
-			</JournalList>
+			<JournalList items={items}/>
 		</Sidebar>
 		<Body>
 			<JournalForm onSubmit={addItem}/>
