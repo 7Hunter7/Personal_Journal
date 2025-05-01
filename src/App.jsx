@@ -13,16 +13,19 @@ import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 function App() {
 	const INITIAL_DATA = [
 		{
+			id: 1,
 			title: 'Подготовка к обновлению курсов',
 			date: new Date(),
 			text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, vitae dolores, ipsa.'
 		},
 		{
+			id: 2,
 			title: 'Поход в горы',
 			date: new Date(),
 			text: 'Optio quibusdam unde laboriosam accusantium ratione dolore quasi delectus praesentium a quam quis quo eveniet architecto libero necessitatibus.'
 		},
 		{
+			id: 3,
 			title: 'Собеседование',
 			date: new Date(),
 			text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio minima animi eos, inventore porro atque non adipisci fuga velit! Dolor harum eius sit, molestias repellendus rem qui sint voluptates possimus.'
@@ -33,6 +36,7 @@ function App() {
 
 	const addItem = item => {
 		setItems(oldItems => [...oldItems, {
+			id: Math.max(...oldItems.map(i => i.id)) + 1,
 			title: item.title,
 			date: new Date(item.date),
 			text: item.text,
@@ -40,18 +44,26 @@ function App() {
 		}])
 	}
 
+	const sortItems = (a, b) => {
+		if (a.date < b.date) {
+			return 1;
+		} else {
+			return -1;
+		}
+	};
+
 
 	return <>
 		<Sidebar>
 			<Header/>
 			<JournalAddButton/>
 			<JournalList>
-				{items.map(el => (
-					<CardButton>
+				{items.sort(sortItems).map(el => (
+					<CardButton key={el.id}>
 						<JournalItem 
-							title = {el.title}
-							date = {el.date}
-							text = {el.text}
+							title={el.title}
+							date={el.date}
+							text={el.text}
 						/>
 					</CardButton>
 				))}
