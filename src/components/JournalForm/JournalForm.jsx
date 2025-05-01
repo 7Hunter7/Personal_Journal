@@ -1,11 +1,34 @@
 import './JournalForm.scss';
 import Button from '../Button/Button';
+import { useState } from 'react';
 
 function JournalForm({onSubmit}) {
+	const [formValidState, setFormValidState] = useState({
+		title: true,
+		text: true,
+		date: true,
+
+	});
+
 	const addJournalItem = (e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
 		const formProps = Object.fromEntries(formData)
+		// Валидация данных
+		let isValidForm = true;
+		if(!formProps.title.trim().lenght){
+			setFormValidState(state => ({...state, title: false}));
+			isValidForm = false;
+		}
+		if(!formProps.text.trim().lenght){
+			setFormValidState(state => ({...state, text: false}));
+			isValidForm = false;
+		}
+		if(!formProps.date){
+			setFormValidState(state => ({...state, date: false}));
+			isValidForm = false;
+		}
+		if (!isValidForm) return;
 		onSubmit(formProps);
 		console.log(formProps);
 	}
