@@ -8,9 +8,27 @@
   border: 1px solid red;
   background:rgb(65, 5, 5) ;
 }
+.form {
+  &-row{
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 3.5rem;
+    border-block-start: 1px solid silver;
+  }
+  &-label{
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-left: 2rem;
+  
+}
+
+}
 .input{
   &-title{
     border:none ;
+    outline: none;
     border-bottom: 1px solid #222096;
     background: none;
     font-size: 1.5rem;
