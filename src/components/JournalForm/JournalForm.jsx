@@ -9,19 +9,21 @@ import { formReducer, INITIAL_STATE } from './JournalForm.state';
 function JournalForm({onSubmit}) {
 	const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
 
+	const {isValid} = formState;
+
 	useEffect(() => {
 		let timerId;
-		if(!formValidState.title || !formValidState.text || !formValidState.date)
+		if(!isValid.title || !isValid.post || !isValid.date)
 		{
 			timerId = setTimeout(() => {
-				setFormValidState(INITIAL_STATE);
+				dispatchForm({type: 'RERESET_VALIDITY'})
 			}, 2000) // Сброс через 2 секунды
 		}
 		// Очистка таймера
 		return () => {
 			clearTimeout(timerId)
 		};
-	}, [formValidState])
+	}, [isValid])
 
 	// Добавление новой записи
 	const addJournalItem = (e) => {
@@ -31,22 +33,22 @@ function JournalForm({onSubmit}) {
 		// Валидация данных
 		let isValidForm = true;
 		if (!formProps.title?.trim().length) {
-			setFormValidState(state => ({...state, title: false}));
+			setisValid(state => ({...state, title: false}));
 			isValidForm = false;
 		} else {
-			setFormValidState(state => ({...state, title: true}));
+			setisValid(state => ({...state, title: true}));
 		}
-		if (!formProps.text?.trim().length) {
-			setFormValidState(state => ({...state, text: false}));
+		if (!formProps.post?.trim().length) {
+			setisValid(state => ({...state, post: false}));
 			isValidForm = false;
 		} else {
-			setFormValidState(state => ({...state, text: true}));
+			setisValid(state => ({...state, post: true}));
 		}
 		if (!formProps.date) {
-			setFormValidState(state => ({...state, date: false}));
+			setisValid(state => ({...state, date: false}));
 			isValidForm = false;
 		} else {
-			setFormValidState(state => ({...state, date: true}));
+			setisValid(state => ({...state, date: true}));
 		}
 		if (!isValidForm) return;
 		onSubmit(formProps);
@@ -58,7 +60,7 @@ function JournalForm({onSubmit}) {
 			<div className={styles['form-row']}>
 				<input type='text' name='title'
 					className={cn(styles['input-title'], {
-						[styles['invalid']]: !formValidState.title,
+						[styles['invalid']]: !isValid.title,
 					})}/>
 				<svg 
 					xmlns="http://www.w3.org/2000/svg" 
@@ -77,7 +79,7 @@ function JournalForm({onSubmit}) {
 				</label>
 				<input type='date' name='date' id='date'
 					className={cn(styles['input'], {
-						[styles['invalid']]: !formValidState.date,
+						[styles['invalid']]: !isValid.date,
 					})}/>
 			</div>
 			<div className={styles['form-row']}>
@@ -92,9 +94,9 @@ function JournalForm({onSubmit}) {
 				<input type='text' name='tag' id='tag' className={styles['input']}/>
 			</div>
 			<div className={styles['form-row']}>
-				<textarea name='text' id="" cols='30' rows='10'
+				<textarea name='post' id="" cols='30' rows='10'
 					className={cn(styles['input'], {
-						[styles['invalid']]: !formValidState.text,
+						[styles['invalid']]: !isValid.post,
 					})}/>
 			</div>
 			<div className={styles['form-button']}>
