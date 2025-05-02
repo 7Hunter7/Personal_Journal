@@ -39,10 +39,7 @@ function JournalForm({onSubmit}) {
 	// Добавление новой записи
 	const addJournalItem = (e) => {
 		e.preventDefault();
-		const formData = new FormData(e.target);
-		const formProps = Object.fromEntries(formData)
-		dispatchForm({type: 'SUBMIT', payload: formProps})
-		console.log(formProps);
+		dispatchForm({type: 'SUBMIT'})
 	}
 
 	return (
