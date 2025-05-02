@@ -3,21 +3,21 @@ export const INITIAL_STATE = {
 	isValid: {
 		title: true,
 		post: true,
-		date: true,
+		date: true
 	},
 	values: {
 		title: '',
 		post: '',
 		date: '',
-		tag:'',
+		tag: ''
 	},
-	isFormReadyToSubmit:false,
+	isFormReadyToSubmit:false
 };
 
 // Функция изменения состояния
 export function formReducer(state, action) {
 	switch(action.type) {
-	case 'SET_VALUES': 
+	case 'SET_VALUE': 
 		return { ...state, values: {...state.values, ...action.payload}};
 	case 'CLEAR': 
 		return { ...state, values: INITIAL_STATE.values};
@@ -32,9 +32,9 @@ export function formReducer(state, action) {
 			isValid: {
 				title: titleValidity,
 				post: postValidity,
-				date: dateValidity,
+				date: dateValidity
 			},
-			isFormReadyToSubmit: titleValidity && postValidity && dateValidity,
+			isFormReadyToSubmit: titleValidity && postValidity && dateValidity
 		};
 	}
 	}

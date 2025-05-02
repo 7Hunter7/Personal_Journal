@@ -14,6 +14,7 @@ function JournalForm({onSubmit}) {
 		if(!isValid.title || !isValid.post || !isValid.date)
 		{
 			timerId = setTimeout(() => {
+				console.log('Очистка состояния');
 				dispatchForm({type: 'RERESET_VALIDITY'})
 			}, 2000) // Сброс через 2 секунды
 		}
@@ -31,8 +32,8 @@ function JournalForm({onSubmit}) {
 	}, [isFormReadyToSubmit])
 
 	const onChange = (e) => {
-		dispatchForm({type: 'SET_VALUES', payload: {
-			[e.target.name]: [e.target.value],
+		dispatchForm({type: 'SET_VALUE', payload: {
+			[e.target.name]: e.target.value
 		}});
 	}
 
