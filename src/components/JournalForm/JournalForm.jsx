@@ -3,6 +3,7 @@ import Button from '../Button/Button';
 import { useReducer, useEffect, useRef } from 'react';
 import cn from 'classnames';
 import { INITIAL_STATE, formReducer } from './JournalForm.state';
+import Input from '../Input/Input';
 
 function JournalForm({onSubmit}) {
 	const [ formState, dispatchForm ] = useReducer(formReducer, INITIAL_STATE);
@@ -64,7 +65,7 @@ function JournalForm({onSubmit}) {
 	return (
 		<form className={styles['journal-form']} onSubmit={addJournalItem}>
 			<div className={styles['form-row']}>
-				<input type='text' ref={titleRef} value={values.title} onChange={onChange} name='title'
+				<Input type='text' ref={titleRef} value={values.title} onChange={onChange} name='title'
 					className={cn(styles['input-title'], {
 						[styles['invalid']]: !isValid.title,
 					})}/>
@@ -83,7 +84,7 @@ function JournalForm({onSubmit}) {
 					</svg>
 					Дата
 				</label>
-				<input type='date' ref={dateRef} value={values.date} onChange={onChange} name='date' id='date'
+				<Input type='date' ref={dateRef} value={values.date} onChange={onChange} name='date' id='date'
 					className={cn(styles['input'], {
 						[styles['invalid']]: !isValid.date,
 					})}/>
@@ -97,7 +98,7 @@ function JournalForm({onSubmit}) {
 					</svg>
 					Метка
 				</label>
-				<input type='text' value={values.tag} onChange={onChange} name='tag' id='tag' className={styles['input']}/>
+				<Input type='text' value={values.tag} onChange={onChange} name='tag' id='tag' className={styles['input']}/>
 			</div>
 			<div className={styles['form-row']}>
 				<textarea ref={postRef} value={values.post} onChange={onChange} name='post' id='post' cols='30' rows='10'
