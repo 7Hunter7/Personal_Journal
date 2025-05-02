@@ -30,6 +30,12 @@ function JournalForm({onSubmit}) {
 		}
 	}, [isFormReadyToSubmit])
 
+	const onChange = (e) => {
+		dispatchForm({type: 'SET_VALUES', payload: {
+			[e.target.name]: [e.target.value],
+		}});
+	}
+
 	// Добавление новой записи
 	const addJournalItem = (e) => {
 		e.preventDefault();
