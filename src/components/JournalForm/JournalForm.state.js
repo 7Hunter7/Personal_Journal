@@ -6,9 +6,10 @@ export const INITIAL_STATE = {
 		date: true,
 	},
 	values: {
-		title: undefined,
-		post: undefined,
-		date: undefined,
+		title: '',
+		post: '',
+		date: '',
+		tag:'',
 	},
 	isFormReadyToSubmit:false,
 };
