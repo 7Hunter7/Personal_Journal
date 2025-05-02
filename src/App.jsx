@@ -13,20 +13,20 @@ function App() {
 		{
 			id: 1,
 			title: 'Подготовка к обновлению курсов',
+			post: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, vitae dolores, ipsa.',
 			date: new Date(),
-			text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, vitae dolores, ipsa.'
 		},
 		{
 			id: 2,
 			title: 'Поход в горы',
+			post: 'Optio quibusdam unde laboriosam accusantium ratione dolore quasi delectus praesentium a quam quis quo eveniet architecto libero necessitatibus.',
 			date: new Date(),
-			text: 'Optio quibusdam unde laboriosam accusantium ratione dolore quasi delectus praesentium a quam quis quo eveniet architecto libero necessitatibus.'
 		},
 		{
 			id: 3,
 			title: 'Собеседование',
+			post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio minima animi eos, inventore porro atque non adipisci fuga velit! Dolor harum eius sit, molestias repellendus rem qui sint voluptates possimus.',
 			date: new Date(),
-			text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio minima animi eos, inventore porro atque non adipisci fuga velit! Dolor harum eius sit, molestias repellendus rem qui sint voluptates possimus.'
 		}
 	];
 
@@ -52,8 +52,8 @@ function App() {
 		setItems(oldItems => [...oldItems, {
 			id: oldItems.length > 0 ? Math.max(...oldItems.map(i => i.id)) + 1 : 1,
 			title: item.title,
+			post: item.post,
 			date: new Date(item.date),
-			text: item.text,
 		}])
 	}
 

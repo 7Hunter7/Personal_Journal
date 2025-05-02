@@ -2,14 +2,12 @@ import styles from'./JournalForm.module.scss';
 import Button from '../Button/Button';
 import { useReducer, useEffect } from 'react';
 import cn from 'classnames';
-import { formReducer, INITIAL_STATE } from './JournalForm.state';
-
-
+import { INITIAL_STATE, formReducer } from './JournalForm.state';
 
 function JournalForm({onSubmit}) {
 	const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
 
-	const {isValid, isFormReadyToSubmit, values} = formState;
+	const {isValid, values, isFormReadyToSubmit} = formState;
 
 	useEffect(() => {
 		let timerId;
@@ -79,7 +77,7 @@ function JournalForm({onSubmit}) {
 				<input type='text' name='tag' id='tag' className={styles['input']}/>
 			</div>
 			<div className={styles['form-row']}>
-				<textarea name='post' id="" cols='30' rows='10'
+				<textarea name='post' id='post' cols='30' rows='10'
 					className={cn(styles['input'], {
 						[styles['invalid']]: !isValid.post,
 					})}/>
