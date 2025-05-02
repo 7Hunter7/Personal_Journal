@@ -1,3 +1,5 @@
+@import '../../assets/main.css';
+
 .journal-form {
   display: flex;
   flex-direction: column;
@@ -5,37 +7,43 @@
   gap:1.875rem;
 }
 
-
 .input{
   width: 100%;
-  padding: 0.3rem 0.5rem;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  background: none;
   border: none;
   outline: none;
-  
+  background: none;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  font-size: 0.875rem;  
+  font-family: var(--font-family-primary);
   &-title{
     border:none ;
     outline: none;
-    border-bottom: 1px solid #222096;
     background: none;
+    border-bottom: 1px solid var(--accent-color);
     font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+    font-weight: var(--font-weight-title);
   }
 }
 
 .form {
   &-row{
-    padding: 0.5rem;
+    padding: 0.8rem;
     display: flex;
     align-items: center;
     gap: 3.5rem;
-    border-bottom: 1px solid silver;
+    border-bottom: 0.5px solid var(--border-color);
+    &:first-child {
+      border-bottom: none;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 0;
+    }
+    svg {
+      width: 1.5rem;
+			height: 1.5rem;
+    }
   }
   &-label{
     min-width: 6rem;

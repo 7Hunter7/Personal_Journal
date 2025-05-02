@@ -4,9 +4,11 @@
 --font-family-header: "Love Light", cursive;
 --font-family-primary: "Source Sans 3", sans-serif;
 --font-weight-base: 400;
+--font-weight-title: 600;
 --text-color: rgba(255,255,255,0.87);
---background-color: #181818;
 --accent-color: #312EB5;
+--background-color: #181818;
+--border-color:rgba(255, 255, 255, 0.3);
 }
 
 body {
@@ -25,14 +27,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
+h1, h2, h3, h4 {
   font-family: var(--font-family-header);
+  font-weight: var(--font-weight-title);
   font-size: 2.5rem;
-  font-weight: 600;
 }
 
 h2, h3, h4 {
-  font-family: var(--font-family-header);
   font-size: 2rem;
-  font-weight: 600;
 }
