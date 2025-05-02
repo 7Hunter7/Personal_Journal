@@ -12,9 +12,13 @@
   border: none;
   outline: none;
   background: none;
-  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  padding: 0.5rem;
+  border-bottom: 0.5px solid $border-color;
   font-size: 0.875rem;  
   font-family: $font-family-primary;
+  &:last-child{
+    padding: 0.5rem 2.5rem 0.5rem 1rem;
+  }
   &-title{
     border:none ;
     outline: none;
@@ -31,12 +35,8 @@
     display: flex;
     align-items: center;
     gap: 3.5rem;
-    border-bottom: 0.5px solid $border-color;
     &:first-child {
-      border-bottom: none;
-      display: flex;
       flex-wrap: nowrap;
-      align-items: center;
       justify-content: space-between;
       padding-right: 0;
     }
@@ -50,7 +50,12 @@
     display: flex;
     align-items: center;
     gap: 1.25rem;
-}
+  }
+  &-button{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+  }
 }
 
 .invalid {

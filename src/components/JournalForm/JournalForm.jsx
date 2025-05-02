@@ -78,13 +78,15 @@ function JournalForm({onSubmit}) {
 				</label>
 				<input type='text' name='tag' id='tag' className={styles['input']}/>
 			</div>
-			<div>
+			<div className={styles['form-row']}>
 				<textarea name='text' id="" cols='30' rows='10'
 					className={cn(styles['input'], {
 						[styles['invalid']]: !formValidState.text,
 					})}/>
 			</div>
-			<Button text='Сохранить'/>
+			<div className={styles['form-button']}>
+				<Button text='Сохранить' />
+			</div>
 		</form>
 
 	); 
