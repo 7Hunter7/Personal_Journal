@@ -28,7 +28,7 @@ export function formReducer(state, action) {
 		const postValidity = action.payload.post?.trim().length;
 		const dateValidity = action.payload.date;
 		return {
-			values:action.payload,
+			...state,
 			isValid: {
 				title: titleValidity,
 				post: postValidity,
