@@ -26,6 +26,7 @@ function JournalForm({onSubmit}) {
 	useEffect(() => {
 		if (isFormReadyToSubmit) {
 			onSubmit(values);
+			dispatchForm({type: 'CLEAR'});
 		}
 	}, [isFormReadyToSubmit])
 
