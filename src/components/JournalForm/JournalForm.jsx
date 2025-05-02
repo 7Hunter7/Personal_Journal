@@ -1,16 +1,13 @@
 import styles from'./JournalForm.module.scss';
 import Button from '../Button/Button';
-import { useState, useEffect } from 'react';
+import { useReducer, useEffect } from 'react';
 import cn from 'classnames';
+import { formReducer, INITIAL_STATE } from './JournalForm.state';
 
-const INITIAL_STATE = {
-	title: true,
-	text: true,
-	date: true,
-};
+
 
 function JournalForm({onSubmit}) {
-	const [formValidState, setFormValidState] = useState(INITIAL_STATE);
+	const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
 
 	useEffect(() => {
 		let timerId;
@@ -18,7 +15,7 @@ function JournalForm({onSubmit}) {
 		{
 			timerId = setTimeout(() => {
 				setFormValidState(INITIAL_STATE);
-			}, 2000) // Сброс черезз 2 секунды
+			}, 2000) // Сброс через 2 секунды
 		}
 		// Очистка таймера
 		return () => {
