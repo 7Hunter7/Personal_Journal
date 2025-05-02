@@ -1,14 +1,14 @@
+import { forwardRef } from 'react';
 import styles from './Input.module.scss';
 import cn from 'classnames';
 
-
-function Input({ className, isValid, appearence, ...props }) {
+const Input = forwardRef(function Input({ className, isValid, appearence, ...props }, ref) {
 	return (
-		<input className={cn(className, styles['input'], {
+		<input ref={ref} className={cn(className, styles['input'], {
 			[styles['input-title']]: appearence === 'title',
 			[styles['invalid']]: !isValid,
 		})} {...props}/> // Передаем остальные свойства
 	);
-}
+});
 
 export default Input;
