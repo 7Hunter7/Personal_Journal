@@ -17,6 +17,8 @@ export const INITIAL_STATE = {
 // Функция изменения состояния
 export function formReducer(state, action) {
 	switch(action.type) {
+	case 'SET_VALUES': 
+		return { ...state, values: INITIAL_STATE.values};
 	case 'CLEAR': 
 		return { ...state, values: INITIAL_STATE.values};
 	case 'RESET_VALIDITY': 
