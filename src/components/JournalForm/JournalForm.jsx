@@ -30,27 +30,7 @@ function JournalForm({onSubmit}) {
 		e.preventDefault();
 		const formData = new FormData(e.target);
 		const formProps = Object.fromEntries(formData)
-		// Валидация данных
-		let isValidForm = true;
-		if (!formProps.title?.trim().length) {
-			setisValid(state => ({...state, title: false}));
-			isValidForm = false;
-		} else {
-			setisValid(state => ({...state, title: true}));
-		}
-		if (!formProps.post?.trim().length) {
-			setisValid(state => ({...state, post: false}));
-			isValidForm = false;
-		} else {
-			setisValid(state => ({...state, post: true}));
-		}
-		if (!formProps.date) {
-			setisValid(state => ({...state, date: false}));
-			isValidForm = false;
-		} else {
-			setisValid(state => ({...state, date: true}));
-		}
-		if (!isValidForm) return;
+		dispatchForm({type: 'SUBMIT', payload: formProps})
 		onSubmit(formProps);
 		console.log(formProps);
 	}
