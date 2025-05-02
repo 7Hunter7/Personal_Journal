@@ -1,3 +1,4 @@
+// Начальное состояние
 export const INITIAL_STATE = {
 	isValid: {
 		title: true,
@@ -12,6 +13,7 @@ export const INITIAL_STATE = {
 	isFormReadyToSubmit:false,
 };
 
+// Функция изменения состояния
 export function formReducer(state, action) {
 	switch(action.type) {
 	case 'RESET_VALIDITY': 
@@ -20,7 +22,6 @@ export function formReducer(state, action) {
 		const titleValidity = action.payload.title?.trim().length;
 		const postValidity = action.payload.post?.trim().length;
 		const dateValidity = action.payload.date;
-    
 		return {
 			values:action.payload,
 			isValid: {
