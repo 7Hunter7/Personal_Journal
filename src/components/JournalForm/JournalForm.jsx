@@ -65,10 +65,7 @@ function JournalForm({onSubmit}) {
 	return (
 		<form className={styles['journal-form']} onSubmit={addJournalItem}>
 			<div className={styles['form-row']}>
-				<Input type='text' ref={titleRef} value={values.title} onChange={onChange} name='title'
-					className={cn(styles['input-title'], {
-						[styles['invalid']]: !isValid.title,
-					})}/>
+				<Input type='text' ref={titleRef} isValid={isValid} value={values.title} onChange={onChange} name='title' appearence='title'/>
 				<svg 
 					xmlns="http://www.w3.org/2000/svg" 
 					viewBox="0 0 24 24">
@@ -84,10 +81,7 @@ function JournalForm({onSubmit}) {
 					</svg>
 					Дата
 				</label>
-				<Input type='date' ref={dateRef} value={values.date} onChange={onChange} name='date' id='date'
-					className={cn(styles['input'], {
-						[styles['invalid']]: !isValid.date,
-					})}/>
+				<Input type='date' ref={dateRef} isValid={isValid} value={values.date} onChange={onChange} name='date' id='date'/>
 			</div>
 			<div className={styles['form-row']}>
 				<label htmlFor="tag" className={styles['form-label']}>
@@ -98,7 +92,7 @@ function JournalForm({onSubmit}) {
 					</svg>
 					Метка
 				</label>
-				<Input type='text' value={values.tag} onChange={onChange} name='tag' id='tag' className={styles['input']}/>
+				<Input type='text' value={values.tag} onChange={onChange} name='tag' id='tag'/>
 			</div>
 			<div className={styles['form-row']}>
 				<textarea ref={postRef} value={values.post} onChange={onChange} name='post' id='post' cols='30' rows='10'
