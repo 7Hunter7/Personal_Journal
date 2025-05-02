@@ -1,4 +1,4 @@
-@import '../../assets/main.css';
+@import '../../assets/main.scss';
 
 .journal-add {
   display: flex;
@@ -6,16 +6,15 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.625rem;
-  font-family: var(--font-family-header);
+  font-family: $font-family-header;
   font-style: italic;
   font-size: 1rem;
-  font-weight: 600;
-  line-height: normal;
+  font-weight: $font-weight-title;
   svg {
     width: 1rem;
     height: auto;
   }
   &:hover svg {
-    fill: var(--accent-color);
+    fill: $accent-color;
   }
 }

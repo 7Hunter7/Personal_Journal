@@ -1,4 +1,4 @@
-@import '../../assets/main.css';
+@import '../../assets/main.scss';
 
 .journal-form {
   display: flex;
@@ -14,14 +14,14 @@
   background: none;
   padding: 0.5rem 2.5rem 0.5rem 1rem;
   font-size: 0.875rem;  
-  font-family: var(--font-family-primary);
+  font-family: $font-family-primary;
   &-title{
     border:none ;
     outline: none;
     background: none;
-    border-bottom: 1px solid var(--accent-color);
+    border-bottom: 1px solid $accent-color;
     font-size: 1.25rem;
-    font-weight: var(--font-weight-title);
+    font-weight: $font-weight-title;
   }
 }
 
@@ -31,7 +31,7 @@
     display: flex;
     align-items: center;
     gap: 3.5rem;
-    border-bottom: 0.5px solid var(--border-color);
+    border-bottom: 0.5px solid $border-color;
     &:first-child {
       border-bottom: none;
       display: flex;
