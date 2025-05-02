@@ -88,7 +88,6 @@ function JournalForm({onSubmit}) {
 				<Button text='Сохранить' />
 			</div>
 		</form>
-
 	); 
 }
 

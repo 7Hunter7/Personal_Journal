@@ -1,6 +1,6 @@
 import "./App.css";
 import React from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Body from './layouts/Body/Body';
 import Header from './components/Header/Header';
 import Sidebar from './layouts/Sidebar/Sidebar';
@@ -31,6 +31,16 @@ function App() {
 	];
 
 	const [items, setItems] = useState(INITIAL_DATA);
+
+	useEffect(() => {
+		const data = JSON.parse(localStorage.getItem('data'));
+		if (data) {
+			setItems(data.map(item => ({
+				...item,
+				date: new Date(item.date),
+			})))
+		}
+	},[])
 
 	const addItem = item => {
 		setItems(oldItems => [...oldItems, {
