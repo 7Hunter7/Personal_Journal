@@ -9,7 +9,7 @@ import { formReducer, INITIAL_STATE } from './JournalForm.state';
 function JournalForm({onSubmit}) {
 	const [formState, dispatchForm] = useReducer(formReducer, INITIAL_STATE);
 
-	const {isValid} = formState;
+	const {isValid, isFormReadyToSubmit, values} = formState;
 
 	useEffect(() => {
 		let timerId;
@@ -25,13 +25,18 @@ function JournalForm({onSubmit}) {
 		};
 	}, [isValid])
 
+	useEffect(() => {
+		if (isFormReadyToSubmit) {
+			onSubmit(values);
+		}
+	}, [isFormReadyToSubmit])
+
 	// Добавление новой записи
 	const addJournalItem = (e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
 		const formProps = Object.fromEntries(formData)
 		dispatchForm({type: 'SUBMIT', payload: formProps})
-		onSubmit(formProps);
 		console.log(formProps);
 	}
 
