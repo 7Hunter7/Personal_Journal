@@ -65,7 +65,7 @@ function JournalForm({onSubmit}) {
 	return (
 		<form className={styles['journal-form']} onSubmit={addJournalItem}>
 			<div className={styles['form-row']}>
-				<Input type='text' ref={titleRef} isValid={isValid} value={values.title} onChange={onChange} name='title' appearence='title'/>
+				<Input type='text' ref={titleRef} isValid={isValid.title} value={values.title} onChange={onChange} name='title' appearence='title'/>
 				<svg 
 					xmlns="http://www.w3.org/2000/svg" 
 					viewBox="0 0 24 24">
@@ -81,7 +81,7 @@ function JournalForm({onSubmit}) {
 					</svg>
 					Дата
 				</label>
-				<Input type='date' ref={dateRef} isValid={isValid} value={values.date} onChange={onChange} name='date' id='date'/>
+				<Input type='date' ref={dateRef} isValid={isValid.date} value={values.date} onChange={onChange} name='date' id='date'/>
 			</div>
 			<div className={styles['form-row']}>
 				<label htmlFor="tag" className={styles['form-label']}>
