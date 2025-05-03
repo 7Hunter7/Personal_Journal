@@ -7,6 +7,7 @@ import JournalForm from './components/JournalForm/JournalForm';
 import JournalList from './components/JournalList/JournalList';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import { useLocalStorage } from './hooks/use-localstorage.hook';
+import { MonthContext } from './context/month.context';
 
 function mapItems(items) {
 	if (!items) return [];
@@ -50,16 +51,20 @@ function App() {
 		}]);
 	}
 
-	return <>
-		<Sidebar>
-			<Header/>
-			<JournalAddButton/>
-			<JournalList items={mapItems(items)}/>
-		</Sidebar>
-		<Body>
-			<JournalForm onSubmit={addItem}/>
-		</Body>
-	</>; 
+	return (
+		<MonthContext.Provider>
+			<div className='app'>
+				<Sidebar>
+					<Header/>
+					<JournalAddButton/>
+					<JournalList items={mapItems(items)}/>
+				</Sidebar>
+				<Body>
+					<JournalForm onSubmit={addItem}/>
+				</Body>
+			</div>
+		</MonthContext.Provider>
+	); 
 }
 
 export default App;
