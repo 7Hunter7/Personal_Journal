@@ -1,0 +1,21 @@
+.button {
+  border-radius: 6px;
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background 0.3s ease-in-out transform 0.1s;
+}
+.button:active {
+  transform: scale(0.95);
+}
+
+.accent {
+  background: #312EB5;
+}
+.accent:hover {
+  background: #222096;
+}/*# sourceMappingURL=Button.css.map */

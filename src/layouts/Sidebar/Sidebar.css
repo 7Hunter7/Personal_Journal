@@ -1,0 +1,7 @@
+.sidebar {
+  padding: 1rem;
+  max-width: 25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+}/*# sourceMappingURL=Sidebar.css.map */

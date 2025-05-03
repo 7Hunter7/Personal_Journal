@@ -9,13 +9,12 @@
   border-bottom: 0.5px solid $border-color;
   font-size: 0.875rem;  
   font-family: $font-family-primary;
-  &:last-child {
-    padding: 0.5rem 2.5rem 0.5rem 1rem;
+  &:focus {
+    border-bottom: 1px solid $accent-color;
   }
 }
 
 .input-title {
-  border-bottom: 1px solid $accent-color;
   font-size: 1.25rem;
   font-weight: $font-weight-title;
 }

@@ -1,0 +1,22 @@
+.journal-item__header {
+  margin-top: 0;
+  font-size: 1.125rem;
+  font-style: bold;
+  font-weight: 600;
+  line-height: 1.75rem;
+}
+.journal-item__body {
+  display: flex;
+  flex-direction: row;
+  gap: 0.625rem;
+}
+.journal-item__date, .journal-item__text {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.journal-item__text {
+  color: rgba(255, 255, 255, 0.6);
+}/*# sourceMappingURL=JournalItem.css.map */
