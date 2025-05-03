@@ -1,5 +1,5 @@
 import "./App.css";
-import React from 'react';
+import React, { useState } from 'react';
 import Body from './layouts/Body/Body';
 import Header from './components/Header/Header';
 import Sidebar from './layouts/Sidebar/Sidebar';
@@ -42,6 +42,8 @@ function App() {
 
 	const [items, setItems] = useLocalStorage('data');
 
+	const [monthId, setMonthId] = useState(1)
+
 	const addItem = item => {
 		setItems([...mapItems(items), {
 			title: item.title,
@@ -52,7 +54,7 @@ function App() {
 	}
 
 	return (
-		<MonthContext.Provider value={{monthId: 1}}>
+		<MonthContext.Provider value={{ monthId, setMonthId }}>
 			<div className='app'>
 				<Sidebar>
 					<Header/>
