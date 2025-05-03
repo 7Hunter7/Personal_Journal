@@ -9,9 +9,9 @@ import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import { useLocalStorage } from './hooks/use-localstorage.hook';
 import { MonthContextProvider } from './context/month.context';
 
+// Создание корректной даты для записи
 function mapItems(items) {
 	if (!items) return [];
-	
 	return items.map(i => ({
 		...i,
 		date: new Date(i.date)
@@ -43,13 +43,27 @@ function App() {
 	const [items, setItems] = useLocalStorage('data');
 	const [selectedItem, setSelectedItem] = useState({});
 
+	// Добавление/редактирование записи
 	const addItem = item => {
-		setItems([...mapItems(items), {
-			...item,
-			date: new Date(item.date),
-			id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1,
-		}]);
-	}
+		// Если это новая запись
+		if (!item.id) {
+			setItems([...mapItems(items), {
+				...item,
+				date: new Date(item.date),
+				id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1,
+			}]);
+		} else {
+			// Если уже существующая запись
+			setItems([...mapItems(items).map(i => {
+				if (i.id === item.id) {
+					return {
+						...item,
+					};
+				}
+				return i;
+			})]);
+		}
+	};
 
 	return (
 		<MonthContextProvider >
