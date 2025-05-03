@@ -52,7 +52,7 @@ function App() {
 	}
 
 	return (
-		<MonthContext.Provider>
+		<MonthContext.Provider value={{monthId: 1}}>
 			<div className='app'>
 				<Sidebar>
 					<Header/>
