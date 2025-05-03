@@ -6,7 +6,7 @@ function SelectMonth() {
 	const { monthId, setMonthId } = useContext(MonthContext);
   
 	const changeМonth = (e) => {
-		setMonthId(e.target.value)
+		setMonthId(Number(e.target.value))
 	}
 
 	return (
