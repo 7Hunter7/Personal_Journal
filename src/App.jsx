@@ -8,39 +8,45 @@ import JournalList from './components/JournalList/JournalList';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import { useLocalStorage } from './hooks/use-localstorage.hook';
 
+function mapItems(items) {
+	if (!items) return [];
+	
+	return items.map(i => ({
+		...i,
+		date: new Date(i.date)
+	}));
+}
+
 function App() {
 	const INITIAL_DATA = [
 		{
 			id: 1,
 			title: 'Подготовка к обновлению курсов',
 			post: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, vitae dolores, ipsa.',
-			date: new Date(),
+			date: '25/04/25'
 		},
 		{
 			id: 2,
 			title: 'Поход в горы',
 			post: 'Optio quibusdam unde laboriosam accusantium ratione dolore quasi delectus praesentium a quam quis quo eveniet architecto libero necessitatibus.',
-			date: new Date(),
+			date: '01/05/25'
 		},
 		{
 			id: 3,
 			title: 'Собеседование',
 			post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio minima animi eos, inventore porro atque non adipisci fuga velit! Dolor harum eius sit, molestias repellendus rem qui sint voluptates possimus.',
-			date: new Date(),
+			date: '28/04/25'
 		}
 	];
 
 	const [items, setItems] = useLocalStorage(INITIAL_DATA);
 
 	const addItem = items => {
-		setItems([...items.map(i => ({
-			...i,
-			date: new Date(item.date),
-		})), {
-			id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1,
+		setItems([...mapItems(items), {
 			title: item.title,
 			post: item.post,
 			date: new Date(item.date),
+			id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1,
 		}]);
 	}
 
@@ -48,7 +54,7 @@ function App() {
 		<Sidebar>
 			<Header/>
 			<JournalAddButton/>
-			<JournalList items={items}/>
+			<JournalList items={mapItems(items)}/>
 		</Sidebar>
 		<Body>
 			<JournalForm onSubmit={addItem}/>
