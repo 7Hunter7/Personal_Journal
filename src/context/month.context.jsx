@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import { useState } from 'react';
 
-export const MonthContext = createContext({
+const MonthContext = createContext({
 	monthId: 1,
 });
 
