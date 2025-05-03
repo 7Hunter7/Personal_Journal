@@ -1,12 +1,16 @@
 import './SelectMonth.scss';
+import { useContext } from 'react';
+import { MonthContext } from '../../context/month.context';
 
 function SelectMonth({changedМonth}) {
+	const { monthId } = useContext(MonthContext);
+  
 	const changeМonth = (e) => {
 		changedМonth(e.target.value)
 	}
 
 	return (
-		<select name='user' id='user' onChange={changeМonth}>
+		<select name='month' id='month' value={monthId} onChange={changeМonth}>
 			<option value="1">Январь</option>
 			<option value="2">Февраль</option>
 			<option value="3">Март</option>
