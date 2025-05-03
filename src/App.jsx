@@ -59,7 +59,7 @@ function App() {
 				<JournalList items={mapItems(items)} setItem={selectedItem}/>
 			</Sidebar>
 			<Body>
-				<JournalForm onSubmit={addItem}/>
+				<JournalForm onSubmit={addItem} data={selectedItem}/>
 			</Body>
 		</MonthContextProvider>
 	); 
