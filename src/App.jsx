@@ -55,16 +55,14 @@ function App() {
 
 	return (
 		<MonthContext.Provider value={{ monthId, setMonthId }}>
-			<div className='app'>
-				<Sidebar>
-					<Header/>
-					<JournalAddButton/>
-					<JournalList items={mapItems(items)}/>
-				</Sidebar>
-				<Body>
-					<JournalForm onSubmit={addItem}/>
-				</Body>
-			</div>
+			<Sidebar>
+				<Header/>
+				<JournalAddButton/>
+				<JournalList items={mapItems(items)}/>
+			</Sidebar>
+			<Body>
+				<JournalForm onSubmit={addItem}/>
+			</Body>
 		</MonthContext.Provider>
 	); 
 }
