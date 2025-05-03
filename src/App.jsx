@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from 'react';
+import React from 'react';
 import Body from './layouts/Body/Body';
 import Header from './components/Header/Header';
 import Sidebar from './layouts/Sidebar/Sidebar';
@@ -7,7 +7,7 @@ import JournalForm from './components/JournalForm/JournalForm';
 import JournalList from './components/JournalList/JournalList';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import { useLocalStorage } from './hooks/use-localstorage.hook';
-import { MonthContext } from './context/month.context';
+import { MonthContextProvider } from './context/month.context';
 
 function mapItems(items) {
 	if (!items) return [];
@@ -42,8 +42,6 @@ function App() {
 
 	const [items, setItems] = useLocalStorage('data');
 
-	const [monthId, setMonthId] = useState(1)
-
 	const addItem = item => {
 		setItems([...mapItems(items), {
 			title: item.title,
@@ -54,7 +52,7 @@ function App() {
 	}
 
 	return (
-		<MonthContext.Provider value={{ monthId, setMonthId }}>
+		<MonthContextProvider >
 			<Sidebar>
 				<Header/>
 				<JournalAddButton/>
@@ -63,7 +61,7 @@ function App() {
 			<Body>
 				<JournalForm onSubmit={addItem}/>
 			</Body>
-		</MonthContext.Provider>
+		</MonthContextProvider>
 	); 
 }
 
