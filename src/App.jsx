@@ -39,9 +39,9 @@ function App() {
 		}
 	];
 
-	const [items, setItems] = useLocalStorage(INITIAL_DATA);
+	const [items, setItems] = useLocalStorage('data');
 
-	const addItem = items => {
+	const addItem = item => {
 		setItems([...mapItems(items), {
 			title: item.title,
 			post: item.post,
