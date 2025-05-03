@@ -1,5 +1,5 @@
 import "./App.css";
-import React from 'react';
+import React, { useState } from 'react';
 import Body from './layouts/Body/Body';
 import Header from './components/Header/Header';
 import Sidebar from './layouts/Sidebar/Sidebar';
@@ -41,6 +41,7 @@ function App() {
 	];
 
 	const [items, setItems] = useLocalStorage('data');
+	const [selectedItem, setSelectedItem] = useState({});
 
 	const addItem = item => {
 		setItems([...mapItems(items), {
@@ -55,7 +56,7 @@ function App() {
 			<Sidebar>
 				<Header/>
 				<JournalAddButton/>
-				<JournalList items={mapItems(items)}/>
+				<JournalList items={mapItems(items)} setItem={selectedItem}/>
 			</Sidebar>
 			<Body>
 				<JournalForm onSubmit={addItem}/>
