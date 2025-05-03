@@ -2,11 +2,11 @@ import './SelectMonth.scss';
 import { useContext } from 'react';
 import { MonthContext } from '../../context/month.context';
 
-function SelectMonth({changedМonth}) {
-	const { monthId } = useContext(MonthContext);
+function SelectMonth() {
+	const { monthId, setMonthId } = useContext(MonthContext);
   
 	const changeМonth = (e) => {
-		changedМonth(e.target.value)
+		setMonthId(e.target.value)
 	}
 
 	return (
