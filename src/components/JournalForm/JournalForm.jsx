@@ -6,7 +6,7 @@ import { INITIAL_STATE, formReducer } from './JournalForm.state';
 import Input from '../Input/Input';
 import { MonthContext } from '../../context/month.context';
 
-function JournalForm({onSubmit}) {
+function JournalForm({onSubmit, data}) {
 	const [ formState, dispatchForm ] = useReducer(formReducer, INITIAL_STATE);
 	const { isValid, values, isFormReadyToSubmit } = formState;
 	const titleRef = useRef();
@@ -51,13 +51,19 @@ function JournalForm({onSubmit}) {
 		if (isFormReadyToSubmit) {
 			onSubmit(values);
 			dispatchForm({type: 'CLEAR'});
+			dispatchForm({type: 'SET_VALUE', payload: {monthId}});
 		}
-	}, [isFormReadyToSubmit, values, onSubmit] );
+	}, [isFormReadyToSubmit, values, onSubmit, monthId] );
 
 	// Установка новых значений monthId
 	useEffect(() => {
 		dispatchForm({type: 'SET_VALUE', payload: {monthId}});
 	}, [monthId]);
+
+	// Установка данных в поля формы с выбранной записи
+	useEffect(() => {
+		dispatchForm({type: 'SET_VALUE', payload: {...data}});
+	}, [data]);
 
 	// Установка новых значений из полей формы
 	const onChange = (e) => {
