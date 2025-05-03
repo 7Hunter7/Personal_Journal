@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import Button from '../Button/Button';
 import SelectMonth from '../SelectMonth/SelectMonth';
 import Logo from '../Logo/Logo';
@@ -8,9 +8,9 @@ const logos = ['./logo.svg', './vite.svg'];
 function Header() {
 	const [logoIndex, setLogoIndex] = useState(0);
 
-	const toggleLogo = () => {
+	const toggleLogo = useCallback(() => {
 		setLogoIndex(state => Number(!state))
-	}
+	}, [])
 
 	return (
 		<>
@@ -19,7 +19,7 @@ function Header() {
 				Personal Journal
 			</h1>
 			<SelectMonth/>
-			<Button onClick={toggleLogo}/>
+			<Button onClick={toggleLogo} text='Сменить лого'/>
 		</>
 	);
 }
