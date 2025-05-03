@@ -29,6 +29,7 @@ function JournalForm({onSubmit}) {
 		}
 	};
 
+	// Сброс ошибки полей формы
 	useEffect(() => {
 		let timerId;
 		if (!isValid.title || !isValid.post || !isValid.date)
@@ -45,6 +46,7 @@ function JournalForm({onSubmit}) {
 		};
 	}, [isValid]);
 
+	// Очистка содержимлого полей формы
 	useEffect(() => {
 		if (isFormReadyToSubmit) {
 			onSubmit(values);
@@ -52,6 +54,12 @@ function JournalForm({onSubmit}) {
 		}
 	}, [isFormReadyToSubmit, values, onSubmit] );
 
+	// Установка новых значений monthId
+	useEffect(() => {
+		dispatchForm({type: 'SET_VALUE', payload: {monthId}});
+	}, [monthId]);
+
+	// Установка новых значений из полей формы
 	const onChange = (e) => {
 		dispatchForm({type: 'SET_VALUE', payload: {
 			[e.target.name]: e.target.value
@@ -66,7 +74,6 @@ function JournalForm({onSubmit}) {
 
 	return (
 		<form className={styles['journal-form']} onSubmit={addJournalItem}>
-			{monthId}
 			<div className={styles['form-row']}>
 				<Input type='text' ref={titleRef} isValid={isValid.title} value={values.title} onChange={onChange} name='title' appearence='title'/>
 				<svg 
