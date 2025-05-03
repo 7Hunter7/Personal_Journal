@@ -70,7 +70,7 @@ function App() {
 			<Sidebar>
 				<Header/>
 				<JournalAddButton/>
-				<JournalList items={mapItems(items)} setItem={selectedItem}/>
+				<JournalList items={mapItems(items)} setItem={setSelectedItem}/>
 			</Sidebar>
 			<Body>
 				<JournalForm onSubmit={addItem} data={selectedItem}/>
