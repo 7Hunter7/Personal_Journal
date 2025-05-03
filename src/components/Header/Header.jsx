@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from '../Button/Button';
 import SelectMonth from '../SelectMonth/SelectMonth';
-import styles from './Header.module.scss';
+import Logo from '../Logo/Logo';
 
 const logos = ['./logo.svg', './vite.svg'];
 
@@ -14,7 +14,7 @@ function Header() {
 
 	return (
 		<>
-			<img className={styles.logo} src={logos[logoIndex]} alt="Логотип журнала" />
+			<Logo image={logos[logoIndex]}/>
 			<h1 className='header'>
 				Personal Journal
 			</h1>
