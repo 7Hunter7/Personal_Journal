@@ -6,7 +6,7 @@ import { INITIAL_STATE, formReducer } from './JournalForm.state';
 import Input from '../Input/Input';
 import { MonthContext } from '../../context/month.context';
 
-function JournalForm({onSubmit, data}) {
+function JournalForm({onSubmit, data, onDelete}) {
 	const [ formState, dispatchForm ] = useReducer(formReducer, INITIAL_STATE);
 	const { isValid, values, isFormReadyToSubmit } = formState;
 	const titleRef = useRef();
@@ -82,7 +82,7 @@ function JournalForm({onSubmit, data}) {
 		<form className={styles['journal-form']} onSubmit={addJournalItem}>
 			<div className={styles['form-row']}>
 				<Input type='text' ref={titleRef} isValid={isValid.title} value={values.title} onChange={onChange} name='title' appearence='title'/>
-				{data.id && <button className={styles['form-delete']} type='button'> 
+				{data.id && <button className={styles['form-delete']} type='button' onClick={() => onDelete(data.id)}>
 					<svg 
 						xmlns="http://www.w3.org/2000/svg" 
 						viewBox="0 0 24 24"
