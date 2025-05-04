@@ -1,4 +1,4 @@
-import './JournalList.scss';
+import styles from './JournalList.module.scss'
 import CardButton from '../CardButton/CardButton';
 import JournalItem from '../JournalItem/JournalItem';
 import { useContext, useMemo } from 'react';
@@ -25,17 +25,19 @@ function JournalList({items, setItem}) {
 		return <p>Записей пока нет, добавьте первую</p>;
 	}
 
-	return <>
-		{filteredItems.map(el => (
-			<CardButton key={el.id} onClick={() => setItem(el)}>
-				<JournalItem 
-					title={el.title}
-					post={el.post}
-					date={el.date}
-				/>
-			</CardButton>
-		))}
-	</>
+	return (
+		<div className={styles['journal-list']}>
+			{filteredItems.map(el => (
+				<CardButton key={el.id} onClick={() => setItem(el)}>
+					<JournalItem 
+						title={el.title}
+						post={el.post}
+						date={el.date}
+					/>
+				</CardButton>
+			))}
+		</div>
+	);
 }
 
 export default JournalList;
