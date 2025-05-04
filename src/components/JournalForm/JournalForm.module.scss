@@ -46,9 +46,23 @@
     align-items: center;
     justify-content:center;
   }
+  &-delete {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 1rem;
+    cursor: pointer;
+    transition: fill 0.3s;
+    &:hover svg {
+      fill:$red-color;
+    }
+    &:active svg {
+      fill:$error-color;
+    }
+  }
 }
 
 .invalid {
-  border: 1px solid red;
+  border: 1px solid $red-color;
   background:rgb(65, 5, 5) ;
 }
