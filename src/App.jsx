@@ -64,6 +64,11 @@ function App() {
 			})]);
 		}
 	};
+	
+	// Удаление записи  
+	const deleteItem = (id) => {
+		setItems([...items.filter(i => i.id !== id)]);
+	}
 
 	return (
 		<MonthContextProvider >
@@ -73,7 +78,7 @@ function App() {
 				<JournalList items={mapItems(items)} setItem={setSelectedItem}/>
 			</Sidebar>
 			<Body>
-				<JournalForm onSubmit={addItem} data={selectedItem}/>
+				<JournalForm onSubmit={addItem} onDelete={deleteItem} data={selectedItem}/>
 			</Body>
 		</MonthContextProvider>
 	); 
