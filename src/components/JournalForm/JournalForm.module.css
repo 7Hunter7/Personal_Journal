@@ -70,8 +70,22 @@ h2, h3, h4 {
   align-items: center;
   justify-content: center;
 }
+.form-delete {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 1rem;
+  cursor: pointer;
+  transition: fill 0.3s;
+}
+.form-delete:hover svg {
+  fill: rgb(255, 0, 0);
+}
+.form-delete:active svg {
+  fill: rgba(255, 0, 0, 0.5);
+}
 
 .invalid {
-  border: 1px solid red;
+  border: 1px solid rgb(255, 0, 0);
   background: rgb(65, 5, 5);
 }/*# sourceMappingURL=JournalForm.module.css.map */

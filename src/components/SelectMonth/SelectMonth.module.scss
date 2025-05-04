@@ -1,0 +1,15 @@
+@import '../../assets/main.scss';
+
+.select {
+  width: 100%;
+  outline: none;
+  background: $background-color;
+  padding: 0.625rem;
+  border: 1px solid $border-color;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;  
+  font-family:$font-family-header;
+  &:focus {
+    border: 1px solid $accent-color;
+  }
+}
