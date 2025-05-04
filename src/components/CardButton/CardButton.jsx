@@ -1,7 +1,7 @@
-import './CardButton.scss';
+import styles from './CardButton.module.scss';
 
 function CardButton({children, className, ...props}) {
-	const classButton = 'card-button' + ( className ? ' '+ className : '');
+	const classButton = [styles.cardButton, className].filter(Boolean).join(' ');
 
 	return (
 		<button {...props} className={classButton}>
