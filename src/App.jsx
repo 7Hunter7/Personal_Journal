@@ -41,7 +41,7 @@ function App() {
 	];
 
 	const [items, setItems] = useLocalStorage('data');
-	const [selectedItem, setSelectedItem] = useState({});
+	const [selectedItem, setSelectedItem] = useState(null);
 
 	// Добавление/редактирование записи
 	const addItem = item => {
@@ -74,7 +74,7 @@ function App() {
 		<MonthContextProvider >
 			<Sidebar>
 				<Header/>
-				<JournalAddButton/>
+				<JournalAddButton clearForm={() => setSelectedItem(null)}/>
 				<JournalList items={mapItems(items)} setItem={setSelectedItem}/>
 			</Sidebar>
 			<Body>

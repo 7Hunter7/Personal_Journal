@@ -62,6 +62,10 @@ function JournalForm({onSubmit, data, onDelete}) {
 
 	// Установка данных в поля формы с выбранной записи
 	useEffect(() => {
+		if (!data) {
+			dispatchForm({type: 'CLEAR'});
+			dispatchForm({type: 'SET_VALUE', payload: {monthId}});
+		}
 		dispatchForm({type: 'SET_VALUE', payload: {...data}});
 	}, [data]);
 
@@ -80,7 +84,8 @@ function JournalForm({onSubmit, data, onDelete}) {
 
 	// Очистка полей при удалении записи
 	const deleteJournalItem = (id) => {
-		onDelete(id)
+		onDelete(id);
+		dispatchForm({type: 'CLEAR'});
 		dispatchForm({type: 'SET_VALUE', payload: {monthId}});
 	}
 
@@ -88,7 +93,7 @@ function JournalForm({onSubmit, data, onDelete}) {
 		<form className={styles['journal-form']} onSubmit={addJournalItem}>
 			<div className={styles['form-row']}>
 				<Input type='text' ref={titleRef} isValid={isValid.title} value={values.title} onChange={onChange} name='title' appearence='title'/>
-				{data.id && <button className={styles['form-delete']} type='button' onClick={() => deleteJournalItem(data.id)}>
+				{data?.id && <button className={styles['form-delete']} type='button' onClick={() => deleteJournalItem(data.id)}>
 					<svg 
 						xmlns="http://www.w3.org/2000/svg" 
 						viewBox="0 0 24 24"
