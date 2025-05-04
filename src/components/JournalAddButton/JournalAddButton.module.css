@@ -37,9 +37,6 @@ h2, h3, h4 {
   font-weight: 600;
 }
 .journal-add svg {
-  width: 1rem;
-  height: auto;
-}
-.journal-add:hover svg {
-  fill: #312EB5;
-}/*# sourceMappingURL=JournalAddButton.css.map */
+  width: 1.5rem;
+  height: 1.5rem;
+}/*# sourceMappingURL=JournalAddButton.module.css.map */
