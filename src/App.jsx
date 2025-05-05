@@ -23,20 +23,30 @@ function App() {
 		{
 			id: 1,
 			title: 'Подготовка к собеседованию',
-			post: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, vitae dolores, ipsa.',
-			date: new Date(2025, 0, 14)
+			post: 'Сегодня просматривал типичные вопросы для собеседований. Особенно сложно даются вопросы про мои слабые стороны. Нужно хорошо подготовиться, чтобы не растеряться.',
+			date: new Date(2025, 0, 14),
+			monthId: 1
 		},
 		{
 			id: 2,
 			title: 'Поход в горы',
-			post: 'Optio quibusdam unde laboriosam accusantium ratione dolore quasi delectus praesentium a quam quis quo eveniet architecto libero necessitatibus.',
-			date: new Date(2025, 1, 25)
+			post: 'Наконец-то выбрались в горы! Погода была отличная, виды просто захватывающие. Обязательно повторим этот поход в следующем году!',
+			date: new Date(2025, 1, 25),
+			monthId: 2
 		},
 		{
 			id: 3,
 			title: 'Собеседование',
-			post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio minima animi eos, inventore porro atque non adipisci fuga velit! Dolor harum eius sit, molestias repellendus rem qui sint voluptates possimus.',
-			date: new Date(2025, 2, 26)
+			post: 'Прошел собеседование в IT-компанию. Задавали много технических вопросов, на некоторые ответить не смог. Надеюсь, что мои навыки все равно оценят и предложат работу)',
+			date: new Date(2025, 2, 26),
+			monthId: 3
+		},
+		{
+			id: 4,
+			title: 'Свидание на Елисейских полях',
+			post: 'Париж прекрасен! Прогулка по Елисейским полям была очень романтичной. Надеюсь, это только начало наших кругосветных путешествий!',
+			date: new Date(2025, 6, 7),
+			monthId: 7
 		}
 	];
 
