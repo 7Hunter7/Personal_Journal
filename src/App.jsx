@@ -22,15 +22,15 @@ function App() {
 	const INITIAL_DATA = [
 		{
 			id: 1,
-			title: 'Подготовка к обновлению курсов',
+			title: 'Подготовка к собеседованию',
 			post: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, vitae dolores, ipsa.',
-			date: new Date(2025, 2, 25)
+			date: new Date(2025, 3, 14)
 		},
 		{
 			id: 2,
 			title: 'Поход в горы',
 			post: 'Optio quibusdam unde laboriosam accusantium ratione dolore quasi delectus praesentium a quam quis quo eveniet architecto libero necessitatibus.',
-			date: new Date(2025, 3, 14)
+			date: new Date(2025, 2, 25)
 		},
 		{
 			id: 3,
@@ -40,7 +40,7 @@ function App() {
 		}
 	];
 
-	const [items, setItems] = useLocalStorage('data');
+	const [items, setItems] = useLocalStorage('data', INITIAL_DATA);
 	const [selectedItem, setSelectedItem] = useState(null);
 
 	// Добавление/редактирование записи
