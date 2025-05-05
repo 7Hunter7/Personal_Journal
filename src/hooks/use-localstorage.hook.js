@@ -5,11 +5,16 @@ export function useLocalStorage(key) {
 
 	// Получение данных из localStorage
 	useEffect(() => {
-		const res = JSON.parse(localStorage.getItem(key));
-		if (res) {
-			setData(res);
+		try {
+			const res = JSON.parse(localStorage.getItem(key));
+			if (res) {
+				setData(res);
+			}
+		} catch (error) {
+			console.error(`Ошибка при парсинге данных из localStorage (${key}):`, error);
+		setData(null);
 		}
-	}, []);
+	}, [key]);
 
 	// Сохранение новых данных в localStorage
 	const saveData = (newData) => {
