@@ -94,7 +94,12 @@ function App() {
 				<JournalList items={mapItems(items)} setItem={setSelectedItem}/>
 			</Sidebar>
 			<Body>
-				<JournalForm onSubmit={addItem} onDelete={deleteItem} data={selectedItem}/>
+				<JournalForm
+					onSubmit={addItem}
+					onDelete={deleteItem}
+					data={selectedItem}
+					clearForm={() => setSelectedItem(null)}
+				/>
 			</Body>
 		</MonthContextProvider>
 	); 
