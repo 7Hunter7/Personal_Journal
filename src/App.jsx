@@ -24,19 +24,19 @@ function App() {
 			id: 1,
 			title: 'Подготовка к обновлению курсов',
 			post: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, vitae dolores, ipsa.',
-			date: '25/04/25'
+			date: new Date(2025, 2, 25)
 		},
 		{
 			id: 2,
 			title: 'Поход в горы',
 			post: 'Optio quibusdam unde laboriosam accusantium ratione dolore quasi delectus praesentium a quam quis quo eveniet architecto libero necessitatibus.',
-			date: '01/05/25'
+			date: new Date(2025, 3, 14)
 		},
 		{
 			id: 3,
 			title: 'Собеседование',
 			post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio minima animi eos, inventore porro atque non adipisci fuga velit! Dolor harum eius sit, molestias repellendus rem qui sint voluptates possimus.',
-			date: '28/04/25'
+			date: new Date(2025, 3, 26)
 		}
 	];
 
