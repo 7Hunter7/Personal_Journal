@@ -6,7 +6,7 @@ import { INITIAL_STATE, formReducer } from './JournalForm.state';
 import Input from '../Input/Input';
 import { MonthContext } from '../../context/month.context';
 
-function JournalForm({onSubmit, data, onDelete}) {
+function JournalForm({onSubmit, data, onDelete, clearForm}) {
 	const [ formState, dispatchForm ] = useReducer(formReducer, INITIAL_STATE);
 	const { isValid, values, isFormReadyToSubmit } = formState;
 	const titleRef = useRef();
@@ -71,6 +71,11 @@ function JournalForm({onSubmit, data, onDelete}) {
 			dispatchForm({type: 'SET_VALUE', payload: {...data, date: formattedDate}});
 		}
 	}, [data, monthId]);
+
+	// Очистка формы при смене месяца
+	useEffect(() => {
+		clearForm(); 
+	}, [monthId, clearForm]);
 
 	// Установка новых значений из полей формы
 	const onChange = (e) => {
