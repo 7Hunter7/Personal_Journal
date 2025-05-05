@@ -45,11 +45,12 @@ function App() {
 
 	// Добавление/редактирование записи
 	const addItem = item => {
+		const date = (typeof item.date === 'string') ? new Date(item.date) : item.date;
 		// Если это новая запись
 		if (!item.id) {
 			setItems([...mapItems(items), {
 				...item,
-				date: new Date(item.date),
+				date: date,
 				id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1,
 			}]);
 		} else {
@@ -58,6 +59,7 @@ function App() {
 				if (i.id === item.id) {
 					return {
 						...item,
+						date: date
 					};
 				}
 				return i;
