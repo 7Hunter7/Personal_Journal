@@ -7,7 +7,7 @@ import JournalForm from './components/JournalForm/JournalForm';
 import JournalList from './components/JournalList/JournalList';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import { useLocalStorage } from './hooks/use-localstorage.hook';
-import { MonthContext, MonthContextProvider } from './context/month.context';
+import { MonthContextProvider } from './context/month.context';
 
 // Создание корректной даты для записи
 function mapItems(items) {
@@ -19,28 +19,24 @@ function mapItems(items) {
 }
 
 function App() {
-	const { monthId } = useContext(MonthContext);
 	const INITIAL_DATA = [
 		{
 			id: 1,
 			title: 'Подготовка к собеседованию',
 			post: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, vitae dolores, ipsa.',
-			date: new Date(2025, 0, 14),
-			monthId: 1
+			date: new Date(2025, 0, 14)
 		},
 		{
 			id: 2,
 			title: 'Поход в горы',
 			post: 'Optio quibusdam unde laboriosam accusantium ratione dolore quasi delectus praesentium a quam quis quo eveniet architecto libero necessitatibus.',
-			date: new Date(2025, 1, 25),
-			monthId: 2
+			date: new Date(2025, 1, 25)
 		},
 		{
 			id: 3,
 			title: 'Собеседование',
 			post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio minima animi eos, inventore porro atque non adipisci fuga velit! Dolor harum eius sit, molestias repellendus rem qui sint voluptates possimus.',
-			date: new Date(2025, 2, 26),
-			monthId: 3
+			date: new Date(2025, 2, 26)
 		}
 	];
 
@@ -50,12 +46,14 @@ function App() {
 	// Добавление/редактирование записи
 	const addItem = item => {
 		const date = (typeof item.date === 'string') ? new Date(item.date) : item.date;
+		const itemMonth = date.getMonth() + 1;
+
 		// Если это новая запись
 		if (!item.id) {
 			setItems([...mapItems(items), {
 				...item,
 				date: date,
-				monthId: monthId,
+				monthId: itemMonth,
 				id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1,
 			}]);
 		} else {
@@ -65,7 +63,7 @@ function App() {
 					return {
 						...item,
 						date: date,
-						monthId: monthId
+						monthId: itemMonth
 					};
 				}
 				return i;
