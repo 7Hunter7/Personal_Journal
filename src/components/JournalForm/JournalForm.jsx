@@ -67,7 +67,6 @@ function JournalForm({onSubmit, data, onDelete}) {
 			dispatchForm({type: 'SET_VALUE', payload: {monthId}});
 		}
 		dispatchForm({type: 'SET_VALUE', payload: {...data}});
-		dispatchForm({ type: 'SUBMIT' });
 	}, [data, monthId]);
 
 	// Установка новых значений из полей формы
