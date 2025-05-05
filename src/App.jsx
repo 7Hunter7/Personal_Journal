@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Body from './layouts/Body/Body';
 import Header from './components/Header/Header';
 import Sidebar from './layouts/Sidebar/Sidebar';
@@ -7,7 +7,7 @@ import JournalForm from './components/JournalForm/JournalForm';
 import JournalList from './components/JournalList/JournalList';
 import JournalAddButton from './components/JournalAddButton/JournalAddButton';
 import { useLocalStorage } from './hooks/use-localstorage.hook';
-import { MonthContextProvider } from './context/month.context';
+import { MonthContext, MonthContextProvider } from './context/month.context';
 
 // Создание корректной даты для записи
 function mapItems(items) {
@@ -19,24 +19,28 @@ function mapItems(items) {
 }
 
 function App() {
+	const { monthId } = useContext(MonthContext);
 	const INITIAL_DATA = [
 		{
 			id: 1,
 			title: 'Подготовка к собеседованию',
 			post: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis, vitae dolores, ipsa.',
-			date: new Date(2025, 3, 14)
+			date: new Date(2025, 0, 14),
+			monthId: 1
 		},
 		{
 			id: 2,
 			title: 'Поход в горы',
 			post: 'Optio quibusdam unde laboriosam accusantium ratione dolore quasi delectus praesentium a quam quis quo eveniet architecto libero necessitatibus.',
-			date: new Date(2025, 2, 25)
+			date: new Date(2025, 1, 25),
+			monthId: 2
 		},
 		{
 			id: 3,
 			title: 'Собеседование',
 			post: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio minima animi eos, inventore porro atque non adipisci fuga velit! Dolor harum eius sit, molestias repellendus rem qui sint voluptates possimus.',
-			date: new Date(2025, 3, 26)
+			date: new Date(2025, 2, 26),
+			monthId: 3
 		}
 	];
 
@@ -51,6 +55,7 @@ function App() {
 			setItems([...mapItems(items), {
 				...item,
 				date: date,
+				monthId: monthId,
 				id: items.length > 0 ? Math.max(...items.map(i => i.id)) + 1 : 1,
 			}]);
 		} else {
@@ -59,7 +64,8 @@ function App() {
 				if (i.id === item.id) {
 					return {
 						...item,
-						date: date
+						date: date,
+						monthId: monthId
 					};
 				}
 				return i;
